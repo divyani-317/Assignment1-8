@@ -29,6 +29,7 @@ public class Management {
         employees.add(new Tester("Pierre", 1987, 124, 50));
         employees.add(new Programmer("Matt", 1981, 5, 110));
         employees.add(new Programmer("Sarah", 1986, 3));
+        displayEmployeeInfo(employees);
     }
 
     //    Employee constructors
@@ -43,11 +44,8 @@ public class Management {
         employees.add(new Tester("Pierre", 1987, 124, 50, m2));
         employees.add(new Programmer("Matt", 1981, 5, 110, vt4));
         employees.add(new Programmer("Sarah", 1986, 3, vt3));
-        for (Employee employee : employees) {
-            System.out.println("-------------------------");
-            System.out.println(employee);
-            System.out.println("-------------------------");
-        }
+        displayEmployeeInfo(employees);
+        System.out.println("-------------------------");
     }
 
     void hireTest3() {
@@ -107,5 +105,20 @@ public class Management {
         }
         System.out.println("-------------------------");
 
+    }
+    void displayEmployeeInfo(List<Employee> employees){
+        String postName = "";
+        for (Employee employee : employees) {
+            if(employee instanceof Manager){
+                postName = "manager";
+            }
+            else if(employee instanceof Programmer) {
+                postName = "programer";
+            }
+            else if(employee instanceof Tester) {
+                postName = "tester";
+            }
+            System.out.println("We have a new employee: " + employee.name + ", a " + postName);
+        }
     }
 }
