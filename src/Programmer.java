@@ -20,4 +20,8 @@ public class Programmer extends Employee {
         super(_name, _birthYear, 100, _car);
         compltedProjects = _compltedProjects;
     }
+
+    public int getCompltedProjects() {
+        return compltedProjects;
+    }
 }

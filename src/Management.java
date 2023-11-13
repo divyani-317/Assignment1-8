@@ -3,6 +3,7 @@ import java.util.List;
 
 public class Management {
     static double workingDaysPerMonth = 20.0;
+    final String rateSymbol = "%";
 
     List<Employee> employees = new ArrayList<>();
 
@@ -46,6 +47,8 @@ public class Management {
         employees.add(new Programmer("Sarah", 1986, 3, vt3));
         displayEmployeeInfo(employees);
         System.out.println("-------------------------");
+        displayEmployeeDetail(employees);
+
     }
 
     void hireTest3() {
@@ -107,18 +110,75 @@ public class Management {
 
     }
     void displayEmployeeInfo(List<Employee> employees){
-        String postName = "";
         for (Employee employee : employees) {
-            if(employee instanceof Manager){
-                postName = "manager";
-            }
-            else if(employee instanceof Programmer) {
-                postName = "programer";
-            }
-            else if(employee instanceof Tester) {
-                postName = "tester";
-            }
-            System.out.println("We have a new employee: " + employee.name + ", a " + postName);
+            System.out.println("We have a new employee: " + employee.name + ", a " + getPostName(employee));
         }
+    }
+    void displayEmployeeDetail(List<Employee> employees) {
+        for (Employee employee : employees) {
+            if (employee instanceof Manager) {
+                System.out.println("-------------------------");
+                System.out.println("Name: " + employee.name + ", a Manager" + "\n" +
+                        "Age: " + employee.getAge() + "\n" +
+                        "Employee has a car \n" +
+                        "\t" + "- make: " + employee.getVehicle().make + "\n" +
+                        "\t" + "- plate: " + employee.getVehicle().plate + "\n" +
+                        "\t" + "- color: " + employee.getVehicle().color + "\n" +
+                        "\t" + "- category: " + employee.getVehicle().category + "\n" +
+                        "\t" + "- gear type: " + ((Car) employee.getVehicle()).getGear() + "\n" +
+                        "\t" + "- type: " + ((Car) employee.getVehicle()).getType() + "\n" +
+                        employee.name + " has an Occupation rate: " + employee.getRate() + rateSymbol + "\n" +
+                        "He/She travelled " + ((Manager) employee).getNbTravelDays() + " days and has brought " + "\n" +
+                        ((Manager) employee).getNbClients() + " new clients." +
+                        "His/Her estimated annual income is" + employee.getMonthlySalary()
+                );
+                System.out.println("-------------------------");
+            } else if (employee instanceof Programmer) {
+                System.out.println("-------------------------");
+                System.out.println("Name: " + employee.name + ", a Programmer" + "\n" +
+                        "Age: " + employee.getAge() + "\n" +
+                        "Employee has a " + ((employee.getVehicle() instanceof Car) ? "car" : "motorcycle") + "\n" +
+                        "\t" + "- make: " + employee.getVehicle().make + "\n" +
+                        "\t" + "- plate: " + employee.getVehicle().plate + "\n" +
+                        "\t" + "- color: " + employee.getVehicle().color + "\n" +
+                        "\t" + "- category: " + employee.getVehicle().category );
+                if(employee.getVehicle() instanceof Car){
+                    System.out.println("\t" + "- gear type: " + ((Car) employee.getVehicle()).getGear() + "\n" +
+                            "\t" + "- type: " + ((Car) employee.getVehicle()).getType() + "\n" );
+                }
+                else if(employee.getVehicle() instanceof Motorcycle){
+                    System.out.println("\t" + "- with sidecar \n" );
+                }
+                System.out.println(
+                        employee.name + " has an Occupation rate: " + employee.getRate() + rateSymbol +
+                        " and completed " + ((Programmer) employee).getCompltedProjects() + " projects." + "\n" +
+                        "His/Her estimated annual income is" + employee.getMonthlySalary()
+                );
+                System.out.println("-------------------------");
+            } else if (employee instanceof Tester) {
+                System.out.println("-------------------------");
+                System.out.println("Name: " + employee.name + ", a Tester" + "\n" +
+                        "Age: " + employee.getAge() + "\n" +
+                        "Employee has a motorcycle \n" +
+                        "\t" + "- make: " + employee.getVehicle().make + "\n" +
+                        "\t" + "- plate: " + employee.getVehicle().plate + "\n" +
+                        "\t" + "- color: " + employee.getVehicle().color + "\n" +
+                        "\t" + "- category: " + employee.getVehicle().category + "\n" +
+                        "\t" + "- with sidecar \n" +
+                        employee.name + " has an Occupation rate: " + employee.getRate() + rateSymbol +
+                        " and corrected " + ((Tester) employee).getNbBugs() + " bugs." + "\n" +
+                        "His/Her estimated annual income is" + employee.getMonthlySalary()
+                );
+                System.out.println("-------------------------");
+            }
+        }
+    }
+    private String getPostName(Employee _employee){
+        String postName;
+        postName = (_employee instanceof Manager) ? "manager" :
+                (_employee instanceof Programmer) ? "programmer" :
+                        (_employee instanceof Programmer) ? "tester" :
+                                "";
+        return postName;
     }
 }

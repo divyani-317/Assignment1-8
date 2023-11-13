@@ -27,6 +27,9 @@ public class Employee extends Contract {
             // the effective occupation rate will be set to 100%
             this.rate = 100;
         }
+        else if(_rate > 10){
+            this.rate = _rate;
+        }
         else if(_rate < 10){
             // If an initializer receives
             // as parameter an occupation rate lower than 10%,
@@ -38,6 +41,19 @@ public class Employee extends Contract {
             this.rate = 100;
         }
     }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public int getRate() {
+        return rate;
+    }
+
     private int ComputeAge(){
         return (LocalDate.now().getYear()) - birthYear;
     }
