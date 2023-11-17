@@ -1,12 +1,13 @@
 import java.time.LocalDate;
 
-public class Employee extends Contract {
+public abstract class Employee {
     final String name;
     private int birthYear;
     private int age;
     private int monthlySalary;
     private int rate;
     private Vehicle vehicle;
+    private Contract contract;
     public Employee(String _name, int _birthYear, int _rate, Vehicle _vehicle){
         name = _name;
         birthYear = _birthYear;
@@ -54,17 +55,16 @@ public class Employee extends Contract {
         return rate;
     }
 
+    public Contract contractInfo() {
+        return contract;
+    }
+
+    public void signContract(Contract contract) {
+        this.contract = contract;
+    }
+
     private int ComputeAge(){
         return (LocalDate.now().getYear()) - birthYear;
     }
-
-    @Override
-    public void signContract(Contract _newContract) {
-
-    }
-
-    @Override
-    public String contractInfo() {
-        return null;
-    }
+    public abstract double annualIncome();
 }

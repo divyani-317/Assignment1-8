@@ -11,15 +11,15 @@ public class Permanent extends Contract {
         monthlySalary = _monthlySalary;
         bonusPerChildPerMonth = _bonusPerChildPerMonth;
         accumulatedDays = _accumulatedDays;
+        married = _married;
+    }
+
+    public int getAccumulatedDays() {
+        return accumulatedDays;
     }
 
     @Override
-    public void signContract(Contract _newContract) {
-
-    }
-
-    @Override
-    public String contractInfo() {
-        return null;
+    public double accumulatedSalary() {
+        return monthlySalary + (married ? bonusPerChildPerMonth * nbChildren : 0) * (getAccumulatedDays() / 20.0);
     }
 }

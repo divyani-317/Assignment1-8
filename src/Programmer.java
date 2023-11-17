@@ -1,5 +1,6 @@
 public class Programmer extends Employee {
     private int compltedProjects;
+    final int GAIN_FACTOR_PROJECTS = 200;
     public Programmer(String _name, int _birthYear, int _completedProjects){
         super(_name, _birthYear, 100, null);
         compltedProjects = _completedProjects;
@@ -24,4 +25,8 @@ public class Programmer extends Employee {
     public int getCompltedProjects() {
         return compltedProjects;
     }
+    public double annualIncome(){
+        return ( getMonthlySalary() * 12 ) * getRate() + (getCompltedProjects() *  GAIN_FACTOR_PROJECTS);
+    }
+
 }

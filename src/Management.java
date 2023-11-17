@@ -82,11 +82,8 @@ public class Management {
         employees.add(Matt);
         employees.add(Sarah);
 
-        for (Employee employee : employees) {
-            System.out.println("-------------------------");
-            System.out.println(employee);
-            System.out.println("-------------------------");
-        }
+        displayEmployeeInfo(employees);
+        displayEmployeeDetail(employees);
 
         System.out.println("-------------------------");
         System.out.println("Contracts: ");
@@ -130,7 +127,7 @@ public class Management {
                         employee.name + " has an Occupation rate: " + employee.getRate() + rateSymbol + "\n" +
                         "He/She travelled " + ((Manager) employee).getNbTravelDays() + " days and has brought " + "\n" +
                         ((Manager) employee).getNbClients() + " new clients." +
-                        "His/Her estimated annual income is" + employee.getMonthlySalary()
+                        "His/Her estimated annual income is" + ((Manager) employee).annualIncome()
                 );
                 System.out.println("-------------------------");
             } else if (employee instanceof Programmer) {
@@ -152,7 +149,7 @@ public class Management {
                 System.out.println(
                         employee.name + " has an Occupation rate: " + employee.getRate() + rateSymbol +
                         " and completed " + ((Programmer) employee).getCompltedProjects() + " projects." + "\n" +
-                        "His/Her estimated annual income is" + employee.getMonthlySalary()
+                        "His/Her estimated annual income is" + ((Programmer) employee).annualIncome()
                 );
                 System.out.println("-------------------------");
             } else if (employee instanceof Tester) {
@@ -167,7 +164,7 @@ public class Management {
                         "\t" + "- with sidecar \n" +
                         employee.name + " has an Occupation rate: " + employee.getRate() + rateSymbol +
                         " and corrected " + ((Tester) employee).getNbBugs() + " bugs." + "\n" +
-                        "His/Her estimated annual income is" + employee.getMonthlySalary()
+                        "His/Her estimated annual income is" + ((Tester) employee).annualIncome()
                 );
                 System.out.println("-------------------------");
             }

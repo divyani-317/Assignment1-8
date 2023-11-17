@@ -2,6 +2,8 @@
 public class Manager extends Employee {
     private int nbTravelDays;
     private int nbClients;
+    final int GAIN_FACTOR_CLIENT = 500;
+    final int GAIN_FACTOR_TRAVEL = 100;
     public Manager(String _name, int _birthYear, int _nbClients, int _nbTravelDays){
         super(_name, _birthYear, 100, null);
         nbTravelDays = _nbTravelDays;
@@ -30,14 +32,7 @@ public class Manager extends Employee {
     public int getNbClients() {
         return nbClients;
     }
-
-    @Override
-    public void signContract(Contract _newContract) {
-
-    }
-
-    @Override
-    public String contractInfo() {
-        return null;
+    public double annualIncome(){
+        return ( getMonthlySalary() * 12 ) * getRate() + (getNbClients() * GAIN_FACTOR_CLIENT ) + (getNbTravelDays() * GAIN_FACTOR_TRAVEL);
     }
 }
