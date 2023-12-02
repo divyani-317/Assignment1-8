@@ -1,4 +1,5 @@
 public abstract class Contract {
-    public abstract void signContract(Contract _newContract);
-    public abstract String contractInfo();
+    // Abstract method for calculating cumulative salary
+    public abstract double getAccumulatedSalary();
+
 }

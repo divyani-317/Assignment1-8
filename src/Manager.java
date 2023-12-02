@@ -1,51 +1,39 @@
+import java.io.Console;
 
 public class Manager extends Employee {
-    final String name;
-    public  int birthYear;
-    public int travelDays;
-    public int clientBought;
-    public int occupationRate;
-    public Car car;
-    public Manager(String _name, int _birthYear, int _travelDays, int _clientsBought){
-        super(_name, _birthYear,0, false, 0);
-        name = _name;
-        birthYear = _birthYear;
-        travelDays = _travelDays;
-        clientBought = _clientsBought;
+    private int nbTravelDays;
+    private int nbClients;
+    final int GAIN_FACTOR_CLIENT = 500;
+    final int GAIN_FACTOR_TRAVEL = 100;
+    public Manager(String _name, int _birthYear, int _nbClients, int _nbTravelDays){
+        super(_name, _birthYear, 100, null);
+        nbTravelDays = _nbTravelDays;
+        nbClients = _nbClients;
     }
-    public Manager(String _name, int _birthYear, int _travelDays, int _clientsBought, Car _car){
-        super(_name, _birthYear,0, _car != null ? true : false, 0);
-        name = _name;
-        birthYear = _birthYear;
-        travelDays = _travelDays;
-        clientBought = _clientsBought;
-        car = _car;
+    public Manager(String _name, int _birthYear, int _nbClients, int _nbTravelDays, Car _car){
+        super(_name, _birthYear, 100, _car);
+        nbTravelDays = _nbTravelDays;
+        nbClients = _nbClients;
     }
-    public Manager(String _name, int _birthYear, int _travelDays, int _clientsBought, int _occupationRate){
-        super(_name, _birthYear,0, false, _occupationRate);
-        name = _name;
-        birthYear = _birthYear;
-        travelDays = _travelDays;
-        clientBought = _clientsBought;
-        occupationRate = _occupationRate;
+    public Manager(String _name, int _birthYear, int _nbClients, int _nbTravelDays, int _occupationRate){
+        super(_name, _birthYear, _occupationRate, null);
+        nbTravelDays = _nbTravelDays;
+        nbClients = _nbClients;
     }
-    public Manager(String _name, int _birthYear, int _travelDays, int _clientsBought, int _occupationRate, Car _car){
-        super(_name, _birthYear,0, _car != null ? true : false, _occupationRate);
-        name = _name;
-        birthYear = _birthYear;
-        travelDays = _travelDays;
-        clientBought = _clientsBought;
-        occupationRate = _occupationRate;
-        car = _car;
+    public Manager(String _name, int _birthYear, int _nbClients, int _nbTravelDays, int _occupationRate, Car _car){
+        super(_name, _birthYear, _occupationRate, _car);
+        nbTravelDays = _nbTravelDays;
+        nbClients = _nbClients;
     }
 
-    @Override
-    public void signContract(Contract _newContract) {
-
+    public int getNbTravelDays() {
+        return nbTravelDays;
     }
 
-    @Override
-    public String contractInfo() {
-        return null;
+    public int getNbClients() {
+        return nbClients;
+    }
+    public double annualIncome(){
+        return ( getMonthlySalary() * 12 ) * getRate() + (getNbClients() * GAIN_FACTOR_CLIENT ) + (getNbTravelDays() * GAIN_FACTOR_TRAVEL);
     }
 }
