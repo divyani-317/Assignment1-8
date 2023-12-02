@@ -28,4 +28,5 @@ public class Employee extends Contract {
     public String contractInfo() {
         return null;
     }
+
 }

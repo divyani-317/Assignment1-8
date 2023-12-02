@@ -29,6 +29,12 @@ public class Management {
         employees.add(new Tester("Pierre", 1987, 124, 50));
         employees.add(new Programmer("Matt", 1981, 5, 110));
         employees.add(new Programmer("Sarah", 1986, 3));
+
+        for (Employee employee : employees) {
+            System.out.println("We have a new employee:"+employee.name+",a ");
+
+        }
+        System.out.println("-------------------------");
     }
 
     //    Employee constructors
@@ -44,9 +50,17 @@ public class Management {
         employees.add(new Programmer("Matt", 1981, 5, 110, vt4));
         employees.add(new Programmer("Sarah", 1986, 3, vt3));
         for (Employee employee : employees) {
+            System.out.println("We have a new employee:"+employee.name+",a ");
+        }
+        System.out.println("-------------------------");
+        for (Employee employee : employees) {
             System.out.println("-------------------------");
-            System.out.println(employee);
+            System.out.println("Name::"+employee.name+",a");
+            System.out.println("Age:"+employee.age);
+            System.out.println("Employee has a"+employee.hasVehicle+"\n");
+            System.out.println("-make");
             System.out.println("-------------------------");
+
         }
     }
 
@@ -83,7 +97,7 @@ public class Management {
 
         for (Employee employee : employees) {
             System.out.println("-------------------------");
-            System.out.println(employee);
+            System.out.println(employee.toString());
             System.out.println("-------------------------");
         }
 
