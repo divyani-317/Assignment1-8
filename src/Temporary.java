@@ -7,12 +7,7 @@ public class Temporary extends Contract {
     }
 
     @Override
-    public void signContract(Contract _newContract) {
-
-    }
-
-    @Override
-    public String contractInfo() {
-        return null;
+    public double getAccumulatedSalary() {
+        return hourlySalary * accumulatedHours;
     }
 }
