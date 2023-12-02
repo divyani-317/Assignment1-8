@@ -6,8 +6,13 @@ public class Temporary extends Contract {
         accumulatedHours = _accumulatedHours;
     }
 
+    public int getHourlySalary() {
+        return hourlySalary;
+    }
+
     @Override
     public double getAccumulatedSalary() {
         return hourlySalary * accumulatedHours;
     }
+
 }

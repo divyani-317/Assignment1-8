@@ -6,6 +6,7 @@ public abstract class Employee {
     private int age;
     private int monthlySalary;
     private int rate;
+    private boolean isMarried;
     private Vehicle vehicle;
     private Contract contract;
     public Employee(String _name, int _birthYear, int _rate, Vehicle _vehicle){
@@ -16,6 +17,7 @@ public abstract class Employee {
         setRate(_rate);
         vehicle = _vehicle;
     }
+
 
     public int getMonthlySalary() {
         return monthlySalary;

@@ -18,8 +18,18 @@ public class Permanent extends Contract {
         return monthlySalary;
     }
 
-    private int getAccumulatedDays() {
+    public int getAccumulatedDays() {
         return accumulatedDays;
+    }
+
+    public boolean getStatus()
+    {
+        return married;
+    }
+
+    public  int getNbChildren()
+    {
+        return nbChildren;
     }
 
     @Override
