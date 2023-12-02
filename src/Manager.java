@@ -1,3 +1,4 @@
+import java.io.Console;
 
 public class Manager extends Employee {
     private int nbTravelDays;

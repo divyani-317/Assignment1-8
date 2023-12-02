@@ -7,7 +7,7 @@ public class Temporary extends Contract {
     }
 
     @Override
-    public double accumulatedSalary() {
+    public double getAccumulatedSalary() {
         return hourlySalary * accumulatedHours;
     }
 }

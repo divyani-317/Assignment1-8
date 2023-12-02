@@ -21,6 +21,10 @@ public abstract class Employee {
         return monthlySalary;
     }
 
+    public void setMonthlySalary(int monthlySalary) {
+        this.monthlySalary = monthlySalary;
+    }
+
     public void setRate(int _rate){
         if(_rate > 100){
             // If the occupation rate received by the
@@ -60,6 +64,7 @@ public abstract class Employee {
     }
 
     public void signContract(Contract contract) {
+        //setMonthlySalary(contract.get());
         this.contract = contract;
     }
 
