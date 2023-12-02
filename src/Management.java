@@ -101,14 +101,15 @@ public class Management {
         System.out.println("Contracts: ");
         System.out.println("-------------------------");
         for (Employee employee : employees) {
-            System.out.print(employee.name+" is a " +getPostName(employee)+
-                    ". he is"+((employee.contractInfo() instanceof Permanent) ? (
-                    (Permanent) employee.contractInfo()).getStatus() ? " married" : " unmarried"
-                    : "no status"+
-                    " and he/she has "+((employee.contractInfo() instanceof Permanent) ?((Permanent) employee.contractInfo()).getNbChildren():"no "+" children"+".\n" +
-                    "He/She has worked for " + ((employee.contractInfo() instanceof Permanent) ? ((Permanent)employee.contractInfo()).getAccumulatedDays() + " days" : ((Temporary)employee.contractInfo()).getHourlySalary() + " hours" )+
-                    " and upon contract his/her monthly\n" +
-                    "salary is "+(employee.contractInfo().getAccumulatedSalary()))));
+            System.out.println(
+                    employee.name+" is a " +getPostName(employee)+
+                            ".he is"+ ((employee.contractInfo() instanceof Permanent) ? (
+                            (Permanent) employee.contractInfo()).getStatus() ? " married" : " unmarried"
+                            : " no married status" ) +
+                            " and he/she has "+((employee.contractInfo() instanceof Permanent) ? ((Permanent) employee.contractInfo()).getNbChildren() + " children":"no children") +".\n" +
+                            " He/She has worked for " + ((employee.contractInfo() instanceof Permanent) ? ((Permanent)employee.contractInfo()).getAccumulatedDays() + " days" : ((Temporary)employee.contractInfo()).getHourlySalary() + " hours" )+
+                            " and upon contract his/her monthly\n" +
+                            " salary is "+(employee.contractInfo().getAccumulatedSalary()));
         }
         System.out.println("-------------------------");
 
